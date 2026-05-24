@@ -2,7 +2,7 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <title>Kondisi Geografis Kecamatan Ringinrejo</title>
+    <title>Kondisi Geografis Desa Bangsri</title>
     <style>
       body {
         font-family: "Segoe UI", Tahoma, sans-serif;
@@ -86,19 +86,22 @@
       th,
       td {
         padding: 15px;
-        text-align: left;
-        transition: 0.3s;
+        text-align: center;
+        border: 1px solid #ddd;
       }
 
       th {
         background-color: #6d28d9;
         color: white;
-        font-weight: bold;
+        text-align: center;
+        font-size: 18px;
         letter-spacing: 0.5px;
       }
 
-      tr:nth-child(even) {
+      table td:first-child {
+        width: 50%;
         background-color: #f3e8ff;
+        font-weight: 600;
       }
 
       tr:hover {
@@ -126,44 +129,75 @@
   </head>
   <body>
     <div class="container">
-      <h2>Kondisi Geografis Kecamatan Ringinrejo</h2>
+      <h2>Kondisi Geografis Desa Bangsri</h2>
 
       <div class="image-container">
         <img
-          src="{{ url_for('static', filename='images/d.jpg') }}"
-          alt="Peta Geografis Ringinrejo"
+          src="{{ url_for('static', filename='images/peta.jpeg') }}"
+          alt="Peta Geografis Bangsri"
         />
       </div>
 
       <p>
-        Secara geografis, Kecamatan Ringinrejo terletak di dataran rendah dengan
-        lahan yang didominasi areal persawahan. Wilayah ini memiliki
-        karakteristik yang subur, mendukung sektor pertanian sebagai pilar utama
-        ekonomi masyarakat. Batas wilayah Kecamatan Ringinrejo adalah sebagai
-        berikut:
+        Desa Bangsri merupakan salah satu desa yang berada di wilayah Kecamatan
+        Plandaan, Kabupaten Jombang, Provinsi Jawa Timur. Desa ini memiliki
+        kondisi geografis yang mendukung sektor pertanian, sehingga sebagian
+        besar masyarakatnya bermata pencaharian sebagai petani. Aktivitas
+        pertanian menjadi sumber penghidupan utama warga, dengan hasil pertanian
+        yang berperan penting dalam mendukung perekonomian masyarakat desa.
+        Selain dikenal sebagai desa agraris, Desa Bangsri juga memiliki
+        kehidupan masyarakat yang menjunjung tinggi nilai kebersamaan, gotong
+        royong, dan kekeluargaan. Tradisi sosial dan budaya masih terjaga dengan
+        baik melalui berbagai kegiatan kemasyarakatan, keagamaan, maupun
+        pembangunan desa yang melibatkan partisipasi aktif masyarakat. Dalam
+        penyelenggaraan pemerintahan desa, Desa Bangsri terus berupaya
+        meningkatkan pelayanan publik, pembangunan infrastruktur, serta
+        pemberdayaan masyarakat guna mewujudkan desa yang maju, mandiri, dan
+        sejahtera. Potensi desa di bidang pertanian, sosial, dan sumber daya
+        manusia menjadi modal penting dalam mendukung perkembangan Desa Bangsri
+        ke arah yang lebih baik.
       </p>
 
       <div class="table-container">
         <table>
           <tr>
-            <th>Arah</th>
-            <th>Wilayah Batas</th>
+            <th colspan="2">Desa Bangsri</th>
           </tr>
           <tr>
-            <td>Utara</td>
-            <td>Kecamatan Kandat dan Kecamatan Wates</td>
+            <td>Negara</td>
+            <td>Indonesia</td>
           </tr>
           <tr>
-            <td>Timur</td>
-            <td>Kecamatan Ngancar dan Kabupaten Blitar (Kecamatan Ponggok)</td>
+            <td>Provinsi</td>
+            <td>Jawa Timur</td>
           </tr>
           <tr>
-            <td>Selatan</td>
-            <td>Kabupaten Blitar (Kecamatan Udanawu dan Ponggok)</td>
+            <td>Kabupaten</td>
+            <td>Jombang</td>
           </tr>
           <tr>
-            <td>Barat</td>
-            <td>Kecamatan Kras</td>
+            <td>Kecamatan</td>
+            <td>Plandaan</td>
+          </tr>
+          <tr>
+            <td>Kode Pos</td>
+            <td>61456</td>
+          </tr>
+          <tr>
+            <td>Kode Kemendagri</td>
+            <td>35.17.15.2008</td>
+          </tr>
+          <tr>
+            <td>Luas</td>
+            <td>5.6 km</td>
+          </tr>
+          <tr>
+            <td>Jumlah Penduduk</td>
+            <td>....Jiwa</td>
+          </tr>
+          <tr>
+            <td>Kepadatan</td>
+            <td>.....Jiwa/Km</td>
           </tr>
         </table>
       </div>

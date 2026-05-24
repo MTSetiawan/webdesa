@@ -66,15 +66,10 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        print("USERNAME:", username)
-        print("PASSWORD:", password)
-
         conn = get_db_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("SELECT * FROM admin WHERE username=%s AND password=%s", (username, password))
         akun = cursor.fetchone()
-
-        print("HASIL:", akun)
         cursor.close()
 
         if akun:
@@ -99,11 +94,10 @@ def register():
         nama_lengkap = request.form['nama_lengkap']
 
         conn = get_db_connection()
-        cursor = conn.cursor()
-        query = "INSERT INTO admin (username, password, nama_lengkap) VALUES (%s, %s, %s)"
-
-        cursor.execute(query, (username, password, nama_lengkap))
-        
+        cursor = conn.cursor(
+            "INSERT INTO admin (username, password, nama_lengkap) VALUES (%s, %s, %s)",
+            (username, password, nama_lengkap)
+        )
         conn.commit()
         cursor.close()
         conn.close()
@@ -118,6 +112,7 @@ def register():
 def logout():
     session.clear()
     return redirect(url_for('login'))
+
 
 # ==========================
 # HALAMAN PROTEKSI LOGIN
@@ -341,19 +336,13 @@ def hapus_berita(id):
 @app.route("/upload_foto", methods=["POST"])
 def upload_foto():
     from datetime import datetime
-    import mysql.connector
 
     judul = request.form["judul"]
     file = request.files["gambar"]
 
     if file:
-        foto = file.read()  # cukup ini saja
-        conn = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="",
-            database="db_kecamatan1"
-        )
+        foto = file.read()
+        conn = get_db_connection()
         cursor = conn.cursor()
         sql = "INSERT INTO galeri (judul, foto, tanggal, status) VALUES (%s, %s, %s, %s)"
         cursor.execute(sql, (judul, foto, datetime.today().date(), 1))
@@ -368,22 +357,15 @@ def upload_foto():
 
 @app.route('/gambar/<int:id>')
 def gambar(id):
-    db = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="db_kecamatan1"
-    )
-
-    with db.cursor() as cursor:
-        cursor.execute("SELECT foto FROM galeri WHERE id = %s", (id,))
-        result = cursor.fetchone()
-
-    db.close()
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT foto FROM galeri WHERE id = %s", (id,))
+    result = cursor.fetchone()
+    cursor.close()
+    conn.close()
 
     if result and result[0]:
         from flask import Response
-
         return Response(result[0], mimetype='image/jpeg')
     else:
         return "", 404
@@ -393,13 +375,7 @@ def gambar(id):
 
 @app.route("/galeri")
 def galeri():
-    import mysql.connector
-    conn = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="db_kecamatan1"
-    )
+    conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
     cursor.execute("SELECT * FROM galeri ORDER BY id DESC")
     data = cursor.fetchall()
@@ -474,7 +450,7 @@ def dashboard_public():
     return render_template('publik/dashboard-public.html')
 
 
-@app.route('/geografis-public')
+@app.route('/geografis_public')
 def geografis_public():
         return render_template('publik/geografis-public.html')
 
@@ -625,7 +601,7 @@ def galeri_public():
     conn.close()
     return render_template("publik/galeri-public.html", data=data)
 
-@app.route('/visimisi-public')
+@app.route('/visimisi_public')
 def visimisi_public():
     return render_template('publik/visimisi-public.html')
 
