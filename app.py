@@ -383,9 +383,6 @@ def galeri():
     conn.close()
     return render_template("admin/galeri.html", data=data)
 
-
-
-
 @app.route("/edit_foto/<int:id>", methods=["GET", "POST"])
 def edit_foto(id):
     conn = get_db_connection()
