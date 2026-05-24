@@ -25,7 +25,7 @@ os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 dbconfig = {
     "host": "localhost",
     "user": "root",
-    "password": "",
+    "password": "200522",
     "database": "db_kecamatan1"
 }
     
@@ -66,10 +66,15 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
+        print("USERNAME:", username)
+        print("PASSWORD:", password)
+
         conn = get_db_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("SELECT * FROM admin WHERE username=%s AND password=%s", (username, password))
         akun = cursor.fetchone()
+
+        print("HASIL:", akun)
         cursor.close()
 
         if akun:
@@ -94,10 +99,11 @@ def register():
         nama_lengkap = request.form['nama_lengkap']
 
         conn = get_db_connection()
-        cursor = conn.cursor(
-            "INSERT INTO admin (username, password, nama_lengkap) VALUES (%s, %s, %s)",
-            (username, password, nama_lengkap)
-        )
+        cursor = conn.cursor()
+        query = "INSERT INTO admin (username, password, nama_lengkap) VALUES (%s, %s, %s)"
+
+        cursor.execute(query, (username, password, nama_lengkap))
+        
         conn.commit()
         cursor.close()
         conn.close()
@@ -112,7 +118,6 @@ def register():
 def logout():
     session.clear()
     return redirect(url_for('login'))
-
 
 # ==========================
 # HALAMAN PROTEKSI LOGIN
