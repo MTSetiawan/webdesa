@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Informasi Desa - Desa Bangsri</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background-color: #f3e8ff;
+      }
+
+      header {
+        background-color: #6d28d9;
+        color: white;
+        text-align: center;
+        padding: 22px 0;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 23px;
+      }
+
+      .desa-container {
+        max-width: 700px;
+        margin: 40px auto;
+        background: white;
+        padding: 28px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .desa-container h2 {
+        text-align: center;
+        color: #6d28d9;
+        margin-bottom: 22px;
+        font-size: 19px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        font-size: 16px;
+      }
+
+      li {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      li:last-child {
+        border-bottom: none;
+      }
+
+      .btn-read {
+  background-color: #6d28d9;
+  color: white;
+
+  width: 150px; /* samakan lebar tombol */
+  text-align: center;
+
+  padding: 10px 0;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 15px;
+
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.btn-read:hover {
+  background-color: #5b21b6;
+}
+
+      .kontak {
+        text-align: center;
+        margin-top: 28px;
+        font-size: 14px;
+        color: #444;
+      }
+
+      .kontak img {
+        vertical-align: middle;
+        width: 20px;
+        margin-right: 8px;
+      }
+
+      .kembali {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .kembali a {
+        background-color: #6d28d9;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: 0.3s;
+      }
+
+      .kembali a:hover {
+        background-color: #5b21b6;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>DAFTAR DUSUN DI DESA BANGSRI</h1>
+    </header>
+
+    <div class="desa-container">
+      <h2>Dusun di Desa Bangsri</h2>
+      <ul>
+        <li>
+          Bangsri
+          <a href="{{ url_for('bangsri') }}" class="btn-read"
+            >Dusun Bangsri</a
+          >
+        </li>
+       
+        <li>
+          Jambe
+          <a href="{{ url_for('jambe') }}" class="btn-read"
+            >Dusun Jambe</a
+          >
+        </li>
+        <li>
+          Brumbung
+          <a href="{{ url_for('brumbung') }}" class="btn-read"
+            >Dusun Brumbung</a
+          >
+        </li>
+        <li>
+          Sembung
+          <a href="{{ url_for('sembung') }}" class="btn-read"
+          >Dusun Sembung</a>
+        </li>
+      </ul>
+
+      <div class="kontak">
+        <p>
+          <img src="{{ url_for('static', filename='images/a.png') }}" /> 0321888717 
+        </p>
+        <p>
+          <img src="{{ url_for('static', filename='images/c.png') }}" />
+          desabangsri@gmail.com
+        </p>
+      </div>
+
+      <div class="kembali">
+        <a href="{{ url_for('dashboard') }}">← Kembali ke Dashboard</a>
+      </div>
+    </div>
+  </body>
+</html>

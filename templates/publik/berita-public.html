@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Berita Desa Bangsri</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: #f8fafc;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #1e3a8a;
+        color: white;
+        text-align: center;
+        padding: 18px 0;
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: 0.3px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: 30px auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      @media (max-width: 900px) {
+        .container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      .card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+
+      .card-content {
+        padding: 12px 15px 15px;
+      }
+
+      .card-content h3 {
+        font-size: 16px;
+        margin: 0 0 8px;
+        color: #1e3a8a;
+        font-weight: 600;
+        height: 2.4em;
+        overflow: hidden;
+      }
+
+      .card-content p {
+        font-size: 13px;
+        color: #444;
+        line-height: 1.4em;
+        height: 3.5em;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+
+      .card-content a {
+        text-decoration: none;
+        color: white;
+        background-color: #1e3a8a;
+        padding: 6px 10px;
+        border-radius: 5px;
+        font-size: 12.5px;
+        transition: background 0.2s;
+      }
+
+      .card-content a:hover {
+        background-color: #304bbf;
+      }
+
+      footer {
+        text-align: center;
+        color: #777;
+        font-size: 13px;
+        margin: 35px 0 15px;
+}
+      .btn-container {
+  text-align: center;
+  margin: 30px 0 10px;
+}
+
+.btn-kembali {
+  display: inline-block;
+  background-color: #1e3a8a;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.btn-kembali:hover {
+  background-color: #304bbf;
+  transform: translateY(-2px);
+}
+
+    </style>
+  </head>
+
+  <body>
+    <header>Daftar Berita Desa Bangsri</header>
+
+    <div class="container">
+      {% for berita in berita_list %}
+      <div class="card">
+        {% if berita.gambar %}
+        <img
+          src="data:image/jpeg;base64,{{ berita.gambar }}"
+          alt="Gambar Berita"
+        />
+        {% else %}
+        <img
+          src="{{ url_for('static', filename='default.jpg') }}"
+          alt="Gambar Default"
+        />
+        {% endif %}
+        <div class="card-content">
+          <h3>{{ berita.judul }}</h3>
+          <p>{{ berita.isi[:100] }}...</p>
+          <a href="{{ url_for('detail_berita_public', id=berita.id) }}"
+            >Baca Selengkapnya</a
+          >
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="btn-container">
+  <a href="{{ url_for('dashboard_public') }}" class="btn-kembali">
+    ← Kembali ke Dashboard
+  </a>
+</div>
+
+<footer>&copy; 2026 Desa Bangsri</footer>
+
+  </body>
+</html>

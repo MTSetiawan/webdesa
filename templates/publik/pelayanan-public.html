@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pelayanan Izin Keramaian - Kecamatan Ringinrejo</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #6a00ff, #9b4dff);
+      }
+
+      header {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        text-align: center;
+        padding: 25px;
+        backdrop-filter: blur(3px);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      }
+
+      h2 {
+        color: #5a00d6;
+        text-align: center;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #d1b3ff;
+        padding: 12px;
+        vertical-align: top;
+        text-align: left;
+      }
+
+      th {
+        background-color: #ede4ff;
+        color: #4b0099;
+      }
+
+      .kembali {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .kembali a {
+        background-color: #7a00ff;
+        color: white;
+        padding: 10px 22px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: 0.2s;
+      }
+
+      .kembali a:hover {
+        background-color: #5000b8;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Pelayanan Izin Keramaian</h1>
+    </header>
+
+    <div class="container">
+      <h2>Standar Pelayanan Izin Keramaian</h2>
+      <table>
+        <tr>
+          <th>No.</th>
+          <th>Komponen</th>
+          <th>Uraian</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Persyaratan Pelayanan</td>
+          <td>
+            • Surat Keterangan (Pengajuan Izin Keramaian)<br />
+            • Fotokopi Kartu Keluarga (KK)<br />
+            • Fotokopi E-KTP
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Sistem, Mekanisme, dan Prosedur</td>
+          <td>
+            1. Pemohon datang langsung ke Kantor Kecamatan dengan membawa berkas
+            persyaratan;<br />
+            2. Petugas menerima dan memeriksa berkas persyaratan pemohon;<br />
+            3. Jika persyaratan sesuai, petugas memproses Surat Keterangan
+            (Pengajuan Izin Keramaian); jika tidak, berkas dikembalikan untuk
+            dilengkapi;<br />
+            4. Pemohon menerima Surat Keterangan (Pengajuan Izin Keramaian) yang
+            telah dilegalisasi.
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Jangka Waktu Penyelesaian</td>
+          <td>30 menit</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Biaya/Tarif</td>
+          <td>Gratis</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Produk Layanan</td>
+          <td>
+            Surat Keterangan (Pengajuan Izin Keramaian) yang telah dilegalisasi
+            oleh Kecamatan.
+          </td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Penanganan Pengaduan, Saran, dan Masukan</td>
+          <td>
+            • Langsung: Petugas di Kantor Kecamatan Ringinrejo, Jln.
+            Cenderawasih No. 112<br />
+            • Tidak langsung:<br />
+            Email: kecamatanringinreio@gmail.com<br />
+            Website: www.kedirikab.go.id<br />
+            Instagram: KecamatanRinginrejo_kabkediri<br />
+            Telepon: (0354) 412 444<br />
+            E-Lapor, Hallo Mas BUP, Kotak Saran/Pengaduan
+          </td>
+        </tr>
+      </table>
+
+      <div class="kembali">
+        <a href="{{ url_for('dashboard_public') }}">← Kembali ke Dashboard</a>
+      </div>
+    </div>
+  </body>
+</html>

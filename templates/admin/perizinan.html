@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pelayanan Perizinan - Desa Bangsri</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #6a00ff, #9b4dff);
+      }
+
+      header {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        text-align: center;
+        padding: 25px;
+        backdrop-filter: blur(3px);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: white;
+        padding: 35px;
+        border-radius: 12px;
+        box-shadow: 0 0 18px rgba(167, 139, 250, 0.5);
+      }
+
+      h2 {
+        color: #6d28d9;
+        text-align: center;
+        margin-bottom: 25px;
+        font-weight: 600;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      th,
+      td {
+        padding: 14px 18px;
+        border: 2px solid #ddd;
+        vertical-align: top;
+        line-height: 1.8;
+      }
+
+      th {
+        background-color: #ede9fe;
+        width: 28%;
+        color: #4c1d95;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      th:nth-child(1), td:nth-child(1){ width:2%; text-align:center; }
+th:nth-child(2), td:nth-child(2){ width:17%; }
+th:nth-child(3), td:nth-child(3){ width:30%; }
+th:nth-child(4), td:nth-child(4){ width:25%; }
+
+td ul{
+  margin:0;
+  padding-left:20px;
+}
+
+td li{
+  margin-bottom:6px;
+}
+
+/* Zebra rows */
+tr:nth-child(even){
+  background:#faf7ff;
+}
+
+td ol{
+  margin:0;
+  padding-left:28px;
+}
+
+td ol li{
+  margin-bottom:8px;
+  line-height:1.7;
+}
+
+td ol li::marker{
+  font-weight:normal;
+}
+
+      .kembali {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .kembali a {
+        background-color: #7a00ff;
+        color: white;
+        padding: 10px 22px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: 0.2s;
+      }
+
+      .kembali a:hover {
+        background-color: #5000b8;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Pelayanan Perizinan</h1>
+    </header>
+
+    <div class="container">
+      <h2>Standar Pelayanan Perizinan</h2>
+      <table>
+        <tr>
+          <th>No</th>
+          <th>Komponen</th>
+          <th>Uraian</th>
+          <th>Persyaratan</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Surat Pengantar Izin Usaha</td>
+          <td>
+            Layanan ini diperuntukkan bagi warga yang memerlukan surat pengantar sebagai 
+            persyaratan pengurusan izin usaha. Surat ini dapat digunakan untuk mendukung 
+            proses administrasi usaha, baik usaha mikro, kecil, maupun jenis usaha lainnya 
+            sesuai ketentuan yang berlaku.
+          </td>
+          <td>
+            <ol>
+              <li>Fotocopy KTP pemohon</li>
+              <li>Fotocopy kartu keluarga (KK)</li>
+              <li>Surat pengantar RT/RW(jika diperlukan)</li>
+              <li>Mengisi formulir permohonan</li>
+              <li>Keterangan atau data jenis usaha yang dijalankan</li>
+              <li>Dokumen pendukung lainnya sesuai ketentuan yang berlaku</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Surat Pengantar IMB/PBG</td>
+          <td>
+            Layanan ini digunakan untuk pengurusan surat pengantar sebagai salah satu persyaratan 
+            permohonan Persetujuan Bangunan Gedung (PBG) atau dokumen yang sebelumnya dikenal sebagai 
+            Izin Mendirikan Bangunan (IMB). Pelayanan ini membantu warga dalam melengkapi administrasi 
+            pembangunan atau renovasi bangunan.
+          </td>
+          <td>
+            <ol>
+              <li>Fotocopy KTP pemohon</li>
+              <li>Fotocopy kartu keluarga (KK)</li>
+              <li>Fotokopi bukti kepemilikan tanah atau surat tanah</li>
+              <li>Surat pengantar RT/RW (jika diperlukan)</li>
+              <li>Mengisi formulir permohonan</li>
+              <li>Dokumen rencana bangunan atau dokumen pendukung lainnya (jika diperlukan)</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Rekomendasi Kegiatan Masyarakat</td>
+          <td>
+            Layanan ini diperuntukkan bagi warga atau kelompok masyarakat yang memerlukan surat rekomendasi 
+            atau izin kegiatan untuk pelaksanaan kegiatan sosial, budaya, keagamaan, maupun kegiatan kemasyarakatan 
+            lainnya di wilayah desa.
+          </td>
+          <td>
+            <ol>
+              <li>Surat permohonan atau proposal kegiatan</li>
+              <li>Fotokopi KTP pemohon/penanggung jawab kegiatan</li>
+              <li>Surat pengantar RT/RW (jika diperlukan)</li>
+              <li>Mengisi formulir permohonan rekomendasi</li>
+              <li>Jadwal, lokasi, dan rincian kegiatan yang akan dilaksanakan</li>
+              <li>Dokumen pendukung lainnya sesuai kebutuhan kegiatan</li>
+            </ol>
+           </td>
+        </tr>
+      </table>
+
+      <div class="kembali">
+        <a href="{{ url_for('dashboard') }}">← Kembali ke Dashboard</a>
+      </div>
+    </div>
+  </body>
+</html>

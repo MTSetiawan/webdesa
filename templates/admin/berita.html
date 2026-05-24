@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kelola Berita</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: #f1f5f9;
+        margin: 0;
+        padding: 20px;
+        color: #1e293b;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        text-align: center;
+        color: #1e3a8a;
+        margin-bottom: 25px;
+        font-weight: 700;
+        font-size: 1.9rem;
+      }
+      .btn-tambah {
+        display: inline-block;
+        margin-bottom: 20px;
+        padding: 10px 18px;
+        background-color: #3b82f6;
+        color: white;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.3s ease;
+      }
+      .btn-tambah:hover {
+        background-color: #2563eb;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        font-size: 0.95rem;
+      }
+      table th,
+      table td {
+        border: 1px solid #e2e8f0;
+        padding: 12px;
+        text-align: center;
+        vertical-align: middle;
+      }
+      table th {
+        background-color: #1e3a8a;
+        color: white;
+        font-weight: 600;
+      }
+      table tr:nth-child(even) {
+        background-color: #f9fafb;
+      }
+      .thumbnail {
+        width: 80px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+      }
+      .btn {
+        padding: 6px 14px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-block;
+        transition: opacity 0.3s ease;
+      }
+      .btn:hover {
+        opacity: 0.9;
+      }
+
+      .aksi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+      .btn-edit {
+        background-color: #22c55e;
+        color: white;
+         width: 80px;
+  text-align: center;
+        
+      }
+      .btn-hapus {
+        background-color: #ef4444;
+        color: white;
+         width: 80px;
+  text-align: center;
+      }
+      .btn-kembali {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 10px 18px;
+        background-color: #475569;
+        color: white;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background 0.3s ease;
+      }
+      .btn-kembali:hover {
+        background-color: #334155;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Kelola Berita</h2>
+      <a href="{{ url_for('kelola_berita') }}" class="btn-tambah"
+        >+ Tambah Berita</a
+      >
+
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Gambar</th>
+            <th>Judul</th>
+            <th>Tanggal</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in data %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>
+              {% if row[3] %}
+              <img src="{{ row[3] }}" alt="Gambar Berita" class="thumbnail" />
+              {% else %}
+              <span style="color: #94a3b8">Tidak ada gambar</span>
+              {% endif %}
+            </td>
+            <td>{{ row[1] }}</td>
+            <!-- Judul -->
+            <td>{{ row[2] }}</td>
+            <!-- Tanggal -->
+            <td class="aksi">
+              <a
+                href="{{ url_for('edit_berita', id=row[0]) }}"
+                class="btn btn-edit"
+                >Edit</a
+              >
+              <a
+                href="{{ url_for('hapus_berita', id=row[0]) }}"
+                class="btn btn-hapus"
+                onclick="return confirm('Yakin mau hapus berita ini?')"
+                >Hapus</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <a href="{{ url_for('dashboard') }}" class="btn-kembali"
+        >← Kembali ke Dashboard</a
+      >
+    </div>
+  </body>
+</html>

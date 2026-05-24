@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Beranda - Kecamatan Ringinrejo</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #e0f2fe, #ffffff);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .logo {
+        width: 150px;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        color: #1e3a8a;
+        font-size: 28px;
+        margin-bottom: 40px;
+      }
+
+      .btn-masuk {
+        background-color: #1e40af;
+        color: white;
+        padding: 12px 30px;
+        font-size: 16px;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background 0.3s;
+      }
+
+      .btn-masuk:hover {
+        background-color: #374fc9;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      src="{{ url_for('static', filename='images/yo.png') }}"
+      alt="Logo Kabupaten Kediri"
+      class="logo"
+    />
+    <h1>SELAMAT DATANG DI INFORMASI<br />KECAMATAN RINGINREJO</h1>
+    <a href="{{ url_for('login') }}" class="btn-masuk">MASUK</a>
+  </body>
+</html>

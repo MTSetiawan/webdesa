@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pelayanan Kecamatan Ringinrejo</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: #f1f5f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #1e3a8a;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        line-height: 1.8;
+      }
+
+      .btn-kembali {
+        display: inline-block;
+        margin-top: 30px;
+        background-color: #3b82f6;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+      }
+
+      .btn-kembali:hover {
+        background-color: #2563eb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Pelayanan Kecamatan Ringinrejo</h2>
+      <ul>
+        <li>Pelayanan SKCK</li>
+        <li>Pelayanan SKTM</li>
+        <li>Pelayanan JAMKESDA</li>
+        <li>Pelayanan Izin Keramaian</li>
+        <li>Pembuatan KTP</li>
+        <li>Pembuatan KK</li>
+      </ul>
+
+      <a href="{{ url_for('dashboard') }}" class="btn-kembali"
+        >← Kembali ke Dashboard</a
+      >
+    </div>
+  </body>
+</html>

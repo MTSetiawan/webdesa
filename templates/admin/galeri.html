@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kelola Galeri Desa Bangsri</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: #f1f5f9;
+        margin: 0;
+        padding: 30px;
+        color: #1e293b;
+      }
+      .container {
+        max-width: 1100px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      }
+      h2 {
+        color: #1e3a8a;
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      .btn-tambah {
+        float: right;
+        margin-bottom: 15px;
+        padding: 10px 16px;
+        background: #2563eb;
+        color: white;
+        border-radius: 6px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.3s ease;
+      }
+      .btn-tambah:hover {
+        background: #1d4ed8;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      table th,
+      table td {
+        border-bottom: 1px solid #e2e8f0;
+        padding: 12px;
+        text-align: left;
+      }
+      table th {
+        background: #f8fafc;
+        font-weight: 600;
+        color: #475569;
+      }
+      .thumbnail {
+        width: 70px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 6px;
+        background: #e2e8f0;
+      }
+      .aksi {
+        display: flex;
+        gap: 10px;
+      }
+      .btn-edit,
+      .btn-hapus {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s ease;
+      }
+      .btn-edit {
+        background: #3b82f6;
+      }
+      .btn-edit:hover {
+        background: #1d4ed8;
+      }
+      .btn-hapus {
+        background: #ef4444;
+      }
+      .btn-hapus:hover {
+        background: #b91c1c;
+      }
+
+      /* Tombol kembali */
+      .btn-kembali {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 10px 18px;
+        background: #475569;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: 0.3s ease;
+      }
+      .btn-kembali:hover {
+        background: #334155;
+      }
+
+      /* Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        width: 380px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 0.3s ease;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .modal-content h3 {
+        margin-top: 0;
+        color: #1e3a8a;
+        text-align: center;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      input[type="text"],
+      input[type="file"] {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        font-size: 0.9rem;
+      }
+      .modal-actions {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+      .btn-simpan {
+        background: #22c55e;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .btn-batal {
+        background: #e2e8f0;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Kelola Galeri Desa Bangsri</h2>
+      <a href="#" class="btn-tambah" onclick="openModal()">+ Tambah Foto</a>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Judul</th>
+            <th>Tanggal</th>
+            <th>Status</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for foto in data %}
+          <tr>
+            <td>
+              <img
+                src="{{ url_for('gambar', id=foto['id']) }}"
+                alt="{{ foto['judul'] }}"
+                class="thumbnail"
+              />
+            </td>
+            <td>{{ foto['judul'] }}</td>
+            <td>{{ foto['tanggal'] }}</td>
+            <td>
+              {% if foto['status'] == 1 %} Aktif {% else %} Nonaktif {% endif %}
+            </td>
+            <td class="aksi">
+              <a
+                href="#"
+                class="btn-edit"
+                data-id="{{ foto.id }}"
+                data-judul="{{ foto.judul }}"
+              >
+                ✏️ Edit
+              </a>
+              <a
+                href="{{ url_for('hapus_foto', id=foto['id']) }}"
+                class="btn-hapus"
+                onclick="return confirm('Yakin ingin menghapus foto ini?')"
+                >🗑️ Hapus</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <!-- Tombol Kembali ke Dashboard -->
+      <a href="{{ url_for('dashboard') }}" class="btn-kembali"
+        >⬅️ Kembali ke Dashboard</a
+      >
+    </div>
+
+    <!-- Modal Tambah -->
+    <div id="modalTambah" class="modal">
+      <div class="modal-content">
+        <h3>Tambah Foto</h3>
+        <form
+          action="{{ url_for('upload_foto') }}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group">
+            <label for="gambar">Upload Gambar</label>
+            <input
+              type="file"
+              id="gambar"
+              name="gambar"
+              accept="image/*"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="judul">Judul Foto</label>
+            <input type="text" id="judul" name="judul" required />
+          </div>
+          <div class="modal-actions">
+            <button type="submit" class="btn-simpan">Simpan</button>
+            <button type="button" class="btn-batal" onclick="closeModal()">
+              Batal
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Edit -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <h3>Edit Foto</h3>
+        <form id="formEdit" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label>Upload Gambar Baru (Opsional)</label>
+            <input type="file" name="gambar" />
+          </div>
+          <div class="form-group">
+            <label>Judul Foto</label>
+            <input type="text" name="judul" id="judulEdit" />
+          </div>
+          <div class="modal-actions">
+            <button type="submit" class="btn-simpan">Simpan</button>
+            <button type="button" class="btn-batal" onclick="tutupModal()">
+              Batal
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function openModal() {
+        document.getElementById("modalTambah").style.display = "flex";
+      }
+
+      function closeModal() {
+        document.getElementById("modalTambah").style.display = "none";
+      }
+
+      const editButtons = document.querySelectorAll(".btn-edit");
+      const editModal = document.getElementById("editModal");
+      const formEdit = document.getElementById("formEdit");
+      const judulInput = document.getElementById("judulEdit");
+
+      editButtons.forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          const id = this.getAttribute("data-id");
+          const judul = this.getAttribute("data-judul");
+          formEdit.action = `/edit_foto/${id}`;
+          judulInput.value = judul;
+          editModal.style.display = "flex";
+        });
+      });
+
+      function tutupModal() {
+        editModal.style.display = "none";
+      }
+
+      window.addEventListener("click", function (e) {
+        if (e.target === editModal) tutupModal();
+        if (e.target === document.getElementById("modalTambah")) closeModal();
+      });
+    </script>
+  </body>
+</html>

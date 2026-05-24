@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kelola Berita</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: linear-gradient(135deg, #f0f4f8, #e7eff8);
+        color: #1e293b;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        text-align: center;
+        color: #1e3a8a;
+        margin-bottom: 25px;
+        font-weight: 700;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #475569;
+      }
+      .form-control {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+      }
+      .form-control:focus {
+        outline: none;
+        border-color: #3b82f6;
+      }
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+      .btn-submit {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .btn-submit:hover {
+        background-color: #2563eb;
+      }
+      .btn-kembali {
+        display: inline-block;
+        margin-top: 20px;
+        color: #3b82f6;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .btn-kembali:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Kelola Berita</h2>
+      <form
+        action="{% if berita %}{{ url_for('edit_berita', id=berita[0]) }}{% else %}{{ url_for('upload_berita') }}{% endif %}"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div class="form-group">
+          <label for="judul">Judul</label>
+          <input
+            type="text"
+            id="judul"
+            name="judul"
+            class="form-control"
+            value="{% if berita %}{{ berita[1] }}{% endif %}"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="isi">Isi</label>
+          <textarea id="isi" name="isi" class="form-control" rows="8" required>
+{% if berita %}{{ berita[2] }}{% endif %}</textarea
+          >
+        </div>
+
+        <!-- 🔹 Tambahan: Upload Gambar -->
+        <div class="form-group">
+          <label for="gambar">Unggah Gambar</label>
+          <input
+            type="file"
+            id="gambar"
+            name="gambar"
+            class="form-control"
+            accept="image/*"
+            {%
+            if
+            not
+            berita
+            %}required{%
+            endif
+            %}
+          />
+        </div>
+
+        <button type="submit" class="btn-submit">
+          {% if berita %}Simpan Perubahan{% else %}Unggah Berita{% endif %}
+        </button>
+      </form>
+
+      <a href="{{ url_for('dashboard') }}" class="btn-kembali"
+        >← Kembali ke Dashboard</a
+      >
+    </div>
+
+    {% if filename %}
+    <div class="preview">
+      <h3>Gambar berhasil diupload:</h3>
+      <img
+        src="{{ url_for('static', filename='uploads/' ~ filename) }}"
+        alt="Gambar berita"
+        style="
+          max-width: 100%;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        "
+      />
+    </div>
+    {% endif %}
+  </body>
+</html>

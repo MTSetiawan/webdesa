@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pelayanan Dispensasi Nikah - Kecamatan Ringinrejo</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #6a00ff, #9b4dff);
+      }
+
+      header {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        text-align: center;
+        padding: 25px;
+        backdrop-filter: blur(3px);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      }
+
+      h2 {
+        color: #5a00d6;
+        text-align: center;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #d1b3ff;
+        padding: 12px;
+        vertical-align: top;
+        text-align: left;
+      }
+
+      th {
+        background-color: #ede4ff;
+        color: #4b0099;
+      }
+
+      .kembali {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .kembali a {
+        background-color: #7a00ff;
+        color: white;
+        padding: 10px 22px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: 0.2s;
+      }
+
+      .kembali a:hover {
+        background-color: #5000b8;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Pelayanan Dispensasi Nikah</h1>
+    </header>
+
+    <div class="container">
+      <h2>Standar Pelayanan</h2>
+      <table>
+        <tr>
+          <th>No.</th>
+          <th>Komponen</th>
+          <th>Uraian</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Persyaratan Pelayanan</td>
+          <td>
+            • Surat Permohonan Nikah dari Desa<br />
+            • Fotocopy Kartu Keluarga<br />
+            • Fotocopy E-KTP Calon Pengantin<br />
+            • Model N1, N3, dan N7<br />
+            • Fotocopy Akta Kelahiran dan Ijazah terakhir<br />
+            • Pas Foto berwarna 3x4 dan 4x6 masing-masing 2 lembar<br />
+            • 1 keping VCD foto calon pengantin<br />
+            • Surat Keterangan Sehat dari Dokter<br />
+            • Surat Penetapan Pengadilan jika calon pengantin di bawah 19
+            tahun<br />
+            • Surat Keterangan Bepergian jika numpang nikah<br />
+            • Akta Perceraian (bagi janda/duda cerai hidup)<br />
+            • Akta Kematian (bagi janda/duda cerai mati)
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Sistem, Mekanisme, dan Prosedur</td>
+          <td>
+            1. Petugas Pencatat Nikah dari Desa datang ke Kantor Kecamatan
+            membawa berkas;<br />
+            2. Petugas menerima dan memeriksa kelengkapan berkas;<br />
+            3. Jika berkas lengkap, maka diproses surat Dispensasi Nikah; jika
+            tidak, dikembalikan untuk dilengkapi;<br />
+            4. Petugas Pencatat Nikah menerima surat Dispensasi Nikah.
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Jangka Waktu Penyelesaian</td>
+          <td>30 menit</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Biaya/Tarif</td>
+          <td>Gratis</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Produk Layanan</td>
+          <td>Surat Dispensasi Nikah</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Penanganan Pengaduan, Saran, dan Masukan</td>
+          <td>
+            • Langsung: Petugas di Kantor Kecamatan Ringinrejo, Jln.
+            Cenderawasih No. 112<br />
+            • Tidak langsung:<br />
+            Email: kecamatanrinqinreio@amail.com<br />
+            Website: www.kedirikab.go.id<br />
+            Instagram: KecamatanRinginrejo_kabkediri<br />
+            Telepon: (0354) 412 444<br />
+            E-Lapor, Hallo Mas BUP, Kotak Saran/Kotak Pengaduan
+          </td>
+        </tr>
+      </table>
+
+      <div class="kembali">
+        <a href="{{ url_for('dashboard_public') }}">← Kembali ke Dashboard</a>
+      </div>
+    </div>
+  </body>
+</html>

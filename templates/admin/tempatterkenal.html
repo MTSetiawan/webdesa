@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tempat Terkenal di Ringinrejo</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #4c1d95, #6d28d9, #a78bfa);
+        color: #3b0764;
+      }
+
+      header {
+        background-color: #6d28d9;
+        color: white;
+        padding: 22px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 24px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 35px;
+        background-color: white;
+        border-radius: 14px;
+        box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+        animation: fadeIn 0.7s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .tempat {
+        margin-bottom: 45px;
+      }
+
+      .tempat h3 {
+        color: #6d28d9;
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .tempat img {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin: 10px 0;
+        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+        transition: 0.3s ease;
+      }
+
+      .tempat img:hover {
+        transform: scale(1.02);
+      }
+
+      .tempat p {
+        text-align: justify;
+        margin-top: 5px;
+      }
+
+      .kembali {
+        text-align: center;
+        margin-top: 25px;
+      }
+
+      .kembali a {
+        background-color: #6d28d9;
+        color: white;
+        padding: 12px 22px;
+        text-decoration: none;
+        border-radius: 10px;
+        font-weight: 700;
+        box-shadow: 0 6px 12px rgba(109, 40, 217, 0.35);
+        transition: 0.3s ease;
+      }
+
+      .kembali a:hover {
+        background-color: #4c1d95;
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Tempat Terkenal di Kecamatan Ringinrejo</h1>
+    </header>
+
+    < class="container">
+      <div class="tempat">
+        <h3>1. Pujasera Kaloka</h3>
+        <img src="{{ url_for('static', filename='images/pujasera.jpeg') }}" />
+        <p>
+          Pujasera Kaloka merupakan pusat jajanan dan UMKM yang berada di Desa Bangsri, Kecamatan Plandaan, 
+          Kabupaten Jombang, Jawa Timur. Tempat ini diresmikan pada Mei 2025 sebagai hasil kolaborasi BUMDes 
+          dari 13 desa bersama BUMDesma Plandaan Lestari dan KUD Sri Lestari.
+        </p>
+        <p>
+          Informasi singkat:
+          1. Lokasi: Jalan Raya Bangsri, Kecamatan Plandaan, Jombang.
+          2. Konsep: Pujasera dan pusat pengembangan UMKM desa.
+          3. Nama “Kaloka” berasal dari bahasa Jawa Kawi yang berarti “terkenal” atau “tersohor”.
+          4. Tempat ini dibuat untuk membantu pedagang dan UMKM lokal berkembang serta menjadi pusat ekonomi masyarakat Plandaan.
+          5. Saat grand launching diadakan gelar potensi UMKM selama 3 hari lengkap dengan hiburan campursari, wayang edukasi, dan stand layanan masyarakat.
+          6. Berdasarkan data bisnis online, tempat ini memiliki kategori pujasera/kuliner dengan kisaran harga terjangkau sekitar Rp1.000–25.000.
+        </p>
+      </div>
+
+      <div class="tempat">
+        <h3>2. Waduk Jambe</h3>
+        <img src="{{ url_for('static', filename='images/waduk.jpeg') }}" />
+        <p>
+          Waduk Jambe merupakan wisata alam dan waduk buatan yang berada di Dusun Jambe, 
+          Desa Bangsri, Kecamatan Plandaan, Kabupaten Jombang, Jawa Timur. Tempat ini terkenal 
+          sebagai lokasi santai, memancing, dan menikmati suasana alam yang masih asri. 
+        </p>
+        <p>
+          Informasi singkat:
+          1. Konsep wisata: Waduk/telaga alami dengan suasana tenang dan pepohonan hijau.
+          2. Aktivitas favorit: memancing, piknik keluarga, fotografi, dan bersantai menikmati pemandangan.
+          3. Tiket masuk: umumnya gratis menurut beberapa laporan pengunjung. 
+          4. Jam ramai: biasanya akhir pekan pagi hingga sore.
+          5. Fasilitas masih sederhana karena tempat ini tergolong wisata alam yang belum terlalu ramai wisatawan.
+          6. Tempat ini juga cukup dikenal di kalangan pemancing karena banyak ikan air tawar dan suasananya sejuk jauh dari keramaian kota.
+        </p>
+      </div>
+
+      <div class="kembali">
+        <a href="{{ url_for('dashboard') }}">← Kembali ke Dashboard</a>
+      </div>
+    </div>
+  </body>
+</html>

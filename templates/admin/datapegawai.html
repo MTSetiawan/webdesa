@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Perangkat Desa - Desa Bangsri</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        margin: 0;
+        background-color: #7b2cbf; /* UNGU BACKGROUND */
+        padding: 30px;
+      }
+
+      h1 {
+        text-align: center;
+        color: white; /* PUTIH SUPAYA KONTRAS DI BACKGROUND UNGU */
+      }
+
+      .content {
+        max-width: 900px;
+        margin: 30px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 2px solid #ccc;
+        padding: 12;
+        vertical-align: middle;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      th {
+        background-color: #e0b3ff; /* UNGU MUDA */
+        color: #4b0082; /* UNGU TUA */
+        text-align: center;
+      }
+
+      /* Rapikan lebar tiap kolom */
+th:nth-child(1),
+td:nth-child(1){
+  width: 50px;;
+  text-align:center;
+}
+
+th:nth-child(2),
+td:nth-child(2){
+  width:110px;
+}
+
+th:nth-child(3),
+td:nth-child(3){
+  width: 180px;;
+}
+
+th:nth-child(4),
+td:nth-child(4){
+  width: 120px;;
+  text-align:center;
+}
+
+/* Isi nama & jabatan rapi */
+td:nth-child(2),
+td:nth-child(3){
+  text-align:left;
+}
+
+/* Baris selang-seling */
+tr:nth-child(even){
+  background:#faf7ff;
+}
+
+/* Hover biar elegan */
+tr:hover{
+  background:#f2e8ff;
+}
+
+      .kembali {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .kembali a {
+        background-color: #6a0dad; /* TOMBOL UNGU */
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 8px;
+      }
+
+      .kembali a:hover {
+        background-color: #4b0082; /* UNGU TUA */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>PERANGKAT DESA BANGSRI</h1>
+
+    <div class="content">
+      <table>
+        <thead>
+          <tr>
+            <th>NO</th>
+            <th>NAMA</th>
+            <th>JABATAN</th>
+            <th>PENDIDIKAN TERAKHIR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>SURADI</td>
+            <td>Kepala Desa</td>
+            <td>SMA</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>ANSORI</td>
+            <td>Sekretaris Desa</td>
+            <td>SMAN</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>SAMSUL HUDA</td>
+            <td>Kepala Seksi Pemerintahan</td>
+            <td>SMA</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>FAIZAL ARDIYAS</td>
+            <td>Kepala Seksi Kesejahteraan Rakyat</td>
+            <td>SMA</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>AINUL YAQIN</td>
+            <td>Kepala Seksi Pelayanan</td>
+            <td>MA</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>TARSO</td>
+            <td>Kepala Urusan Keuangan</td>
+            <td>SMK</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>DESY RATNASARI</td>
+            <td>Kepala Urusan Perencanaan</td>
+            <td>SMA</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>MOHAMMAD JUNAIDI</td>
+            <td>Kepala Urusan Tata Usaha dan Umum</td>
+            <td>MAN</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>ABBI ANAN FAUZAN</td>
+            <td>Kepala Dusun Jambe</td>
+            <td>MA</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>PONARI</td>
+            <td>Kepala Dusun Bangsri</td>
+            <td>SMA</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>ANDI RAHMAN</td>
+            <td>Kepala Dusun Brumbung</td>
+            <td>SMA</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>SARTONO</td>
+            <td>Kepala Dusun Sembung</td>
+            <td>SMA</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="kembali">
+        <a href="{{ url_for('dashboard') }}">Kembali ke Dashboard</a>
+      </div>
+    </div>
+  </body>
+</html>

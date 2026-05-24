@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pelayanan Beda Nama - Kecamatan Ringinrejo</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: linear-gradient(135deg, #5d3fd3, #8a5af7);
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #4c2ec7;
+        color: white;
+        text-align: center;
+        padding: 22px;
+        font-size: 22px;
+        font-weight: bold;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+      }
+
+      h2 {
+        color: #4c2ec7;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 25px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 12px;
+        vertical-align: top;
+        text-align: left;
+        font-size: 14px;
+      }
+
+      th {
+        background-color: #e6e0ff;
+        color: #3b2a9f;
+        font-weight: bold;
+      }
+
+      .kembali {
+        text-align: center;
+        margin-top: 35px;
+      }
+
+      .kembali a {
+        background-color: #4c2ec7;
+        color: white;
+        padding: 10px 22px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .kembali a:hover {
+        background-color: #6b48ff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Pelayanan Surat Pernyataan Beda Nama</header>
+
+    <div class="container">
+      <h2>Standar Pelayanan</h2>
+      <table>
+        <tr>
+          <th>No.</th>
+          <th>Komponen</th>
+          <th>Uraian</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Persyaratan Pelayanan</td>
+          <td>
+            • Fotocopy Kartu Keluarga dan menunjukkan yang asli;<br />
+            • Fotocopy KTP-el dan menunjukkan yang asli;<br />
+            • Surat Keterangan Beda Nama dari Desa.
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Sistem, Mekanisme dan Prosedur</td>
+          <td>
+            1. Pemohon datang ke Petugas Pelayanan/Staf Kecamatan untuk
+            diverifikasi dan validasi;<br />
+            2. Petugas Registrasi Pelayanan mengajukan dokumen ke Kasi Kesos
+            untuk diperiksa dan diparaf;<br />
+            3. Dokumen diserahkan kepada Sekretaris Kecamatan atau Camat untuk
+            ditandatangani;<br />
+            4. Dicatat dalam Buku Register Kecamatan;<br />
+            5. Berkas diserahkan kembali ke Pemohon untuk diteruskan ke Dinas
+            terkait.
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Jangka Waktu Penyelesaian</td>
+          <td>5 – 10 menit</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Biaya/Tarif</td>
+          <td>Gratis</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Produk Layanan</td>
+          <td>
+            Surat Pernyataan Beda Nama yang telah dilegalisasi oleh Kecamatan.
+          </td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Penanganan Pengaduan, Saran, dan Masukan</td>
+          <td>
+            • Langsung: Petugas di Kantor Kecamatan Ringinrejo, Jln.
+            Cenderawasih No. 112<br />
+            • Tidak langsung melalui media:<br />
+            Email: kecamatanringinrejo@gmail.com<br />
+            Website: www.kedirikab.go.id<br />
+            Instagram: KecamatanRinginrejo_kabkediri<br />
+            Telepon: (0354) 412 444<br />
+            E-Lapor, Hallo Mas BUP, Kotak Saran/Kotak Pengaduan
+          </td>
+        </tr>
+      </table>
+
+      <div class="kembali">
+        <a href="{{ url_for('dashboard_public') }}">← Kembali ke Dashboard</a>
+      </div>
+    </div>
+  </body>
+</html>

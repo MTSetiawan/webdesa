@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pelayanan Surat Keterangan Usaha - Kecamatan Ringinrejo</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background-color: #7b2cbf; /* UNGU BACKGROUND */
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #4b0082; /* UNGU TUA */
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 30px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      }
+
+      h2 {
+        color: #4b0082; /* UNGU */
+        text-align: center;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 12px;
+        vertical-align: top;
+        text-align: left;
+      }
+
+      th {
+        background-color: #e0b3ff; /* UNGU MUDA */
+      }
+
+      .kembali {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .kembali a {
+        background-color: #6a0dad; /* TOMBOL UNGU */
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 8px;
+      }
+
+      .kembali a:hover {
+        background-color: #4b0082;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Pelayanan Surat Keterangan Usaha (Pengajuan Kredit Bank)</h1>
+    </header>
+
+    <div class="container">
+      <h2>Standar Pelayanan</h2>
+      <table>
+        <tr>
+          <th>No.</th>
+          <th>Komponen</th>
+          <th>Uraian</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Persyaratan Pelayanan</td>
+          <td>
+            • Fotocopy Kartu Keluarga dan menunjukkan yang asli;<br />
+            • Fotocopy KTP-el dan menunjukkan yang asli;<br />
+            • Surat Keterangan dari Desa.
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Sistem, Mekanisme dan Prosedur</td>
+          <td>
+            1. Pemohon datang ke Petugas Pelayanan/Staf Kecamatan untuk
+            diverifikasi dan validasi;<br />
+            2. Petugas Registrasi mengajukan dokumen ke Kasi Kesos untuk
+            diperiksa dan diparaf;<br />
+            3. Dokumen diserahkan kepada Sekretaris Kecamatan atau Camat untuk
+            ditandatangani;<br />
+            4. Dicatat dalam Buku Register Kecamatan;<br />
+            5. Berkas diserahkan kembali ke Pemohon untuk diteruskan ke Dinas
+            terkait.
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Jangka Waktu Penyelesaian</td>
+          <td>5 – 10 menit</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Biaya/Tarif</td>
+          <td>Gratis</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Produk Layanan</td>
+          <td>
+            Surat Pengajuan Kredit Bank yang telah dilegalisasi oleh Kecamatan.
+          </td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Penanganan Pengaduan, Saran, dan Masukan</td>
+          <td>
+            • Langsung: Petugas di Kantor Kecamatan Ringinrejo, Jln.
+            Cenderawasih No. 112<br />
+            • Tidak langsung melalui media:<br />
+            Email: kecamatanrinainreio@amail.com<br />
+            Website: www.kedirikab.go.id<br />
+            Instagram: KecamatanRinginrejo_kabkediri<br />
+            Telepon: (0354) 412 444<br />
+            E-Lapor, Hallo Mas BUP, Kotak Saran/Kotak Pengaduan.
+          </td>
+        </tr>
+      </table>
+
+      <div class="kembali">
+        <a href="{{ url_for('dashboard_public') }}">← Kembali ke Dashboard</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Register Admin</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f4f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .register-container {
+        background-color: white;
+        padding: 30px 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        width: 350px;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #1e40af;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #1e40af;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #374fc9;
+      }
+
+      .login-link {
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      .login-link a {
+        color: #1e40af;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="register-container">
+      <h2>Register Admin</h2>
+      <form action="{{ url_for('register') }}" method="POST">
+        <label for="username">Username</label>
+        <input type="text" name="username" required />
+
+        <label for="password">Password</label>
+        <input type="password" name="password" required />
+
+        <label for="nama_lengkap">Nama Lengkap</label>
+        <input type="text" name="nama_lengkap" required />
+
+        <input type="submit" value="Daftar" />
+      </form>
+
+      <div class="login-link">
+        <p>
+          Sudah punya akun? <a href="{{ url_for('login') }}">Login di sini</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

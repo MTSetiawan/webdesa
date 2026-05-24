@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeri Kegiatan Desa Bangsri</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background-color: #f8fafc;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Header ungu */
+      header {
+        background-color: #7b5fff;
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+
+      header p {
+        margin: 10px 0 0 0;
+        font-size: 1rem;
+        color: #f0f0f0;
+      }
+
+      /* Container galeri */
+      .container {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Grid gambar */
+      .galeri-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        justify-items: center;
+        margin-top: 20px;
+      }
+
+      /* Item individual */
+      .galeri-item {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 270px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .galeri-item img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* gelembung ungu untuk nama kegiatan */
+      .galeri-item h3 {
+        margin: 0;
+        padding: 8px 10px;
+        font-size: 16px;
+        color: white;
+        background-color: #7b5fff;
+
+         min-height: 70px; /* tinggi sama */
+  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        border-radius: 0 0 10px 10px;
+        word-wrap: break-word;
+      }
+
+      /* tombol kembali */
+      .kembali {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .kembali a {
+        background-color: #7b5fff;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 15px;
+        transition: 0.3s;
+      }
+
+      .kembali a:hover {
+        background-color: #5e3fd4;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Galeri Kegiatan Desa Bangsri</h1>
+      <p>Dokumentasi berbagai kegiatan dan momen penting di wilayah kami</p>
+    </header>
+
+    <div class="container">
+      <div class="galeri-grid">
+        {% for item in data %}
+        <div class="galeri-item">
+          <img src="{{ url_for('gambar', id=item[0]) }}" alt="{{ item[1] }}" />
+          <h3>{{ item[1] }}</h3>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="kembali">
+        <a href="{{ url_for('dashboard_public') }}">← Kembali ke Dashboard</a>
+      </div>
+    </div>
+  </body>
+</html>

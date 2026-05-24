@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dusun Sembung</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: linear-gradient(135deg, #e7e2f5, #f5f2ff);
+        color: #1e293b;
+        padding-bottom: 50px;
+      }
+
+      header {
+        background-color: #ffffff;
+        color: #5d3fd3;
+        padding: 24px;
+        text-align: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 24px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+      }
+
+      .logo-kediri {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo-kediri img {
+        width: 80px;
+        height: auto;
+      }
+
+      .logo-kediri p {
+        font-size: 13px;
+        text-align: center;
+        margin: 8px 0 0;
+        line-height: 1.4;
+        color: #475569;
+      }
+
+      .header-text {
+        max-width: 600px;
+      }
+
+      h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0;
+        color: #5d3fd3;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 60px auto;
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .image-container {
+        margin: 30px auto;
+      }
+
+      .image-container img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      .data-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #5d3fd3;
+        margin-top: 50px;
+        margin-bottom: 20px;
+      }
+      .profil-dusun {
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: justify;
+  line-height: 1.9;
+}
+
+.profil-dusun p {
+  margin-bottom: 18px;
+  font-size: 16px;
+  color: #334155;
+}
+
+      .btn-kembali {
+        display: inline-block;
+        margin-top: 40px;
+        background-color: #764ba2;
+        color: white;
+        padding: 12px 25px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+
+      .btn-kembali:hover {
+        background-color: #5d3fd3;
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo-kediri">
+        <img
+          src="{{ url_for('static', filename='images/mboh.png') }}"
+          alt="Logo Kediri"
+        />
+        <p>
+          Sembung, Bangsri, Kec. Plandaan, 
+          <br />Kabupaten Jombang, Jawa Timur 61456
+        </p>
+      </div>
+      <div class="header-text">
+        <h1>SELAMAT DATANG DI INFORMASI<br />DUSUN SEMBUNG</h1>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/sembung.jpeg') }}"
+          alt="Dusun Sembung"
+          onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFF/000?text=Gambar+Tidak+Ditemukan'"
+        />
+      </div>
+
+      <h2 class="data-title">Profil Dusun Sembung</h2>
+
+      <div class="profil-dusun">
+        <p>
+          Dusun Sembung merupakan salah satu dusun di Desa Bangsri dengan mayoritas masyarakat yang bekerja 
+          sebagai petani dan buruh harian. Dusun ini memiliki suasana pedesaan yang tenang serta lahan pertanian 
+          yang cukup luas untuk mendukung aktivitas warga. Masyarakat Dusun Sembung dikenal aktif dalam kegiatan sosial, 
+          kerja bakti, dan pembangunan lingkungan desa. Hubungan antarwarga yang harmonis dan semangat gotong royong masih 
+          sangat terjaga di dusun ini.
+        </p>
+      </div>
+
+      <a href="{{ url_for('dashboard') }}" class="btn-kembali"
+        >← Kembali ke Dashboard</a
+      >
+    </div>
+  </body>
+</html>

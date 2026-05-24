@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Informasi & Administrasi Desa - Desa Bangsri</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background-color: #6a1b9a; /* background abu seperti sebelumnya */
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #6a1b9a;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: white;
+        padding: 35px;
+        border-radius: 12px;
+        box-shadow: 0 0 18px rgba(167, 139, 250, 0.5);
+      }
+
+      h2 {
+        color: #6d28d9;
+        text-align: center;
+        margin-bottom: 25px;
+        font-weight: 600;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      th,
+      td {
+        padding: 14px 18px;
+        border: 2px solid #ddd;
+        vertical-align: top;
+        line-height: 1.8;
+      }
+
+      th {
+        background-color: #ede9fe;
+        width: 28%;
+        color: #4c1d95;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      th:nth-child(1), td:nth-child(1){ width:2%; text-align:center; }
+th:nth-child(2), td:nth-child(2){ width:17%; }
+th:nth-child(3), td:nth-child(3){ width:30%; }
+th:nth-child(4), td:nth-child(4){ width:25%; }
+
+td ul{
+  margin:0;
+  padding-left:20px;
+}
+
+td li{
+  margin-bottom:6px;
+}
+
+/* Zebra rows */
+tr:nth-child(even){
+  background:#faf7ff;
+}
+
+td ol{
+  margin:0;
+  padding-left:28px;
+}
+
+td ol li{
+  margin-bottom:8px;
+  line-height:1.7;
+}
+
+td ol li::marker{
+  font-weight:normal;
+}
+
+      .kembali {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .kembali a {
+        background-color: #7e22ce;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+      }
+
+      .kembali a:hover {
+        background-color: #6b21a8;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Informasi & Administrasi Desa</h1>
+    </header>
+
+    <div class="container">
+      <h2>Standar Pelayanan Informasi dan Administrasi Desa</h2>
+      <table>
+        <tr>
+          <th>No</th>
+          <th>Komponen</th>
+          <th>Uraian</th>
+          <th>Persyaratan</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Info Program Desa</td>
+          <td>
+            Layanan ini menyediakan informasi mengenai program-program desa 
+            yang sedang berjalan maupun yang akan dilaksanakan, meliputi program 
+            pembangunan, pemberdayaan masyarakat, bantuan sosial, serta kegiatan 
+            lainnya yang bertujuan meningkatkan kesejahteraan masyarakat desa.
+          </td>
+          <td>
+            <ol>
+              <li>Membawa KTP atau identitas diri (jika mengajukan informasi secara langsung)</li>
+              <li>Mengisi buku tamu atau formulir permohonan informasi (jika diperlukan)</li>
+              <li>Menyampaikan tujuan atau jenis informasi yang dibutuhkan</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Data Penduduk</td>
+          <td>
+            Layanan ini menyediakan informasi administrasi kependudukan desa, 
+            seperti data jumlah penduduk, komposisi penduduk, serta informasi kependudukan 
+            lainnya yang dapat digunakan sebagai bahan informasi maupun kebutuhan 
+            administrasi sesuai ketentuan yang berlaku.
+          </td>
+          <td>
+            <ol>
+              <li>Fotokopi KTP pemohon</li>
+              <li>Fotokopi Kartu Keluarga (KK) (jika diperlukan)</li>
+              <li>Mengajukan permohonan data atau informasi sesuai kebutuhan</li>
+              <li>Surat pengantar atau surat permohonan resmi (untuk permintaan data tertentu, jika diperlukan)</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Jadwal Kegiatan Desa</td>
+          <td>
+            Layanan ini menyediakan informasi jadwal kegiatan desa, meliputi musyawarah desa, 
+            kegiatan sosial, pembangunan, kegiatan kemasyarakatan, serta agenda resmi desa 
+            lainnya agar masyarakat dapat mengetahui dan berpartisipasi dalam kegiatan yang dilaksanakan.
+          </td>
+          <td>
+            <ol>
+              <li>Tidak ada persyaratan khusus untuk memperoleh informasi umum</li>
+              <li>Membawa identitas diri apabila memerlukan informasi resmi atau undangan kegiatan tertentu (jika diperlukan)</li>
+            </ol>
+          </td>
+        </tr>
+      </table>
+
+      <div class="kembali">
+        <a href="{{ url_for('dashboard') }}">← Kembali ke Dashboard</a>
+      </div>
+    </div>
+  </body>
+</html>

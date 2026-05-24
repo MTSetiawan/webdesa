@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard - Desa Bangsri</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: linear-gradient(to right, #e0f2fe, #f1f5f9);
+        color: #1e293b;
+      }
+
+      header {
+        background-color: #ffffff;
+        color: #1e3a8a;
+        padding: 24px 40px;
+        text-align: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 24px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+      }
+
+      .logo-jombang {
+        position: absolute;
+        left: 220px; 
+      }
+
+      .logo-jombang img {
+        width: 130px;
+      }
+
+      .logo-jombang p {
+        font-size: 13px;
+        text-align: center;
+        margin: 8px 0 0;
+        line-height: 1.4;
+        color: #475569;
+      }
+
+      .header-text {
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .alamat {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #475569;
+        line-height: 1.5;
+      }
+
+      .welcome-admin {
+        font-size: 18px;
+        font-weight: 600;
+        color: #000000;
+        margin: 0 0 8px 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0;
+        color: #1e3a8a;
+      }
+
+      nav {
+        background-color: #1e3a8a;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 12px 0;
+        border-bottom: 3px solid #60a5fa;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 8px 15px;
+        font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      nav a:hover,
+      nav a.active {
+        background-color: #3b82f6;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-arrow {
+        font-size: 12px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #ffffff;
+        min-width: 220px;
+        z-index: 20;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e2e8f0;
+        padding: 8px 0;
+      }
+
+      .dropdown-content a {
+        display: block;
+        color: #334155;
+        padding: 10px 14px;
+        text-decoration: none;
+        margin: 0;
+        transition: background-color 0.2s ease;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f1f5f9;
+        color: #1e3a8a;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .search-container {
+        text-align: center;
+        margin: 32px auto 48px;
+      }
+
+      input[type="text"] {
+        padding: 12px 16px;
+        width: 100%;
+        max-width: 350px;
+        border-radius: 25px;
+        border: 1px solid #cbd5e1;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        outline: none;
+      }
+
+      input[type="text"]:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+      }
+
+      .main-content {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        position: relative;
+        overflow: hidden;
+        padding: 60px 20px;
+      }
+
+      .background-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      .services-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .services-title {
+        font-size: 36px;
+        color: #ffffff;
+        margin-bottom: 20px;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .services-subtitle {
+        font-size: 18px;
+        color: #f8fafc;
+        margin-bottom: 50px;
+        animation: fadeInUp 1s ease-out 0.2s both;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 80px;
+      }
+
+      .service-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .service-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .service-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .service-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .service-card:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .service-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+        color: white;
+        animation: pulse 2s infinite;
+      }
+
+      .service-card h3 {
+        color: #1e293b;
+        font-size: 22px;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+
+      .service-card p {
+        color: #64748b;
+        line-height: 1.6;
+        font-size: 16px;
+      }
+
+      .villages-section {
+        background: #ffffff;
+        padding: 80px 20px;
+        margin-top: 50px;
+      }
+
+      .villages-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .villages-title {
+        font-size: 32px;
+        color: #1e293b;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .villages-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin-top: 40px;
+      }
+
+      .village-card {
+        background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        border-radius: 12px;
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .village-card:hover {
+        transform: translateY(-5px);
+        border-color: #3b82f6;
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+      }
+
+      .village-card h4 {
+        color: #1e293b;
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .village-card p {
+        color: #64748b;
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+
+      .kontak {
+        background: #1e293b;
+        color: #ffffff;
+        text-align: center;
+        padding: 40px 20px;
+        margin-top: 50px;
+      }
+
+      .kontak-container {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      .kontak-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .kontak img {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0) invert(1);
+      }
+
+      .logout {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+      }
+
+      .logout a {
+        color: white;
+        background-color: #ef4444;
+        padding: 8px 16px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.2s ease;
+      }
+
+      .logout a:hover {
+        background-color: #dc2626;
+      }
+
+      .settings {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+      }
+
+      .settings a {
+        color: #475569;
+        font-size: 24px;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .settings a:hover {
+        color: #1e3a8a;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .floating {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @media (max-width: 768px) {
+        .services-title {
+          font-size: 28px;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .villages-grid {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .kontak-container {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logout">
+        <a href="{{ url_for('logout') }}">Logout</a>
+      </div>
+      <div class="settings">
+        <a href="#">&#x2699;</a>
+      </div>
+      <div class="logo-jombang">
+        <img
+          src="{{ url_for('static', filename='images/mboh.png') }}"
+          alt="Logo Jombang"
+        />
+      </div>
+      
+      <div class="header-text">
+        <div class="welcome-admin">Halo, {{ nama }}!</div>
+        <h1>SELAMAT DATANG DI<br />PORTAL INFORMASI DESA BANGSRI</h1>
+
+        <p class="alamat">
+          JL. Raya Bangsri No.37 Telp. 0321888717 Jombang
+        </p>
+      </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+      <div class="dropdown">
+        <a href="profil">Profil <span class="dropdown-arrow">&#x25BC;</span></a>
+        <div class="dropdown-content">
+          <a href="visimisi">Visi & Misi</a>
+          <a href="geografis">Kondisi Geografis</a>
+          <a href="sarpras">Sarana Prasarana</a>
+          <a href="tempatterkenal">Tempat Terkenal</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="#">Pelayanan <span class="dropdown-arrow">&#x25BC;</span></a>
+        <div class="dropdown-content">
+          <a href="pendudukan">Administrasi Kependudukan</a>
+          <a href="surat">Surat Keterangan Umum</a>
+          <a href="sosial">Pelayanan Sosial</a>
+          <a href="pertanahan">Pelayanan Pertanahan</a>
+          <a href="perizinan">Pelayanan Perizinan</a>
+          <a href="kesejahteraan">Pelayanan Kesejahteraan & Pemberdayaan</a>
+          <a href="pengaduan">Pelayanan Pengaduan</a>
+          <a href="informasi">Informasi & Administrasi Desa</a>
+        </div>
+      </div>
+
+      
+
+      <a href="{{ url_for('data_pegawai') }}">Data Pegawai</a>
+      <a href="{{ url_for('struktur') }}">Struktur Kepegawaian</a>
+      <a href="{{ url_for('galeri') }}">Galeri</a>
+      <a href="{{ url_for('berita') }}">Berita</a>
+      <a href="{{ url_for('desa') }}">Profil Desa</a>
+    </nav>
+
+    <!-- Search Box -->
+    <div class="search-container">
+      <input type="text" placeholder="Cari informasi..." />
+    </div>
+
+    <!-- Main Content dengan Background Menarik -->
+    <div class="main-content">
+      <div class="background-pattern"></div>
+
+      <!-- Services Section -->
+      <div class="services-section">
+        <h2 class="services-title">Layanan Unggulan Kecamatan</h2>
+        <p class="services-subtitle">
+          Pelayanan Terbaik Untuk Masyarakat Desa Bangsri
+        </p>
+
+        <div class="services-grid">
+          <div class="service-card floating">
+            <div class="service-icon">📋</div>
+            <h3>Pelayanan SKCK</h3>
+            <p>
+              Surat Keterangan Catatan Kepolisian untuk berbagai keperluan
+              administrasi dan pekerjaan
+            </p>
+          </div>
+
+          <div class="service-card floating">
+            <div class="service-icon">🏥</div>
+            <h3>Pelayanan JAMKESDA</h3>
+            <p>
+              Jaminan Kesehatan Daerah untuk masyarakat yang membutuhkan bantuan
+              kesehatan
+            </p>
+          </div>
+
+          <div class="service-card floating">
+            <div class="service-icon">💰</div>
+            <h3>Pelayanan SKTM</h3>
+            <p>
+              Surat Keterangan Tidak Mampu untuk mendapatkan berbagai bantuan
+              dan keringanan biaya
+            </p>
+          </div>
+
+          <div class="service-card floating">
+            <div class="service-icon">📢</div>
+            <h3>Pengaduan Masyarakat</h3>
+            <p>
+              Sistem pengaduan yang responsif untuk menampung aspirasi dan
+              keluhan masyarakat
+            </p>
+          </div>
+
+          <div class="service-card floating">
+            <div class="service-icon">💼</div>
+            <h3>Surat Keterangan Usaha</h3>
+            <p>Untuk mendukung kegiatan usaha dan perdagangan</p>
+          </div>
+
+          <div class="service-card floating">
+            <div class="service-icon">💍</div>
+            <h3>Surat Dispensasi Nikah</h3>
+            <p>Untuk pasangan yang belum mencukupi syarat usia pernikahan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Villages Section -->
+    <div class="villages-section">
+      <div class="villages-container">
+        <h2 class="villages-title">Dusun di Desa Bangsri</h2>
+        <p style="color: #64748b; font-size: 16px">
+          Desa Bangsri terdiri dari beberapa dusun dengan karakteristik
+          yang khas
+        </p>
+
+        <div class="villages-grid">
+          <div class="village-card">
+            <h4>Dusun Bangsri</h4>
+            <p>
+              Merupakan pusat aktivitas desa dengan fasilitas yang lebih lengkap, 
+              akses jalan yang baik, serta menjadi lokasi utama berbagai kegiatan 
+              pemerintahan dan sosial masyarakat.
+            </p>
+          </div>
+
+          <div class="village-card">
+            <h4>Dusun Brumbung</h4>
+            <p>Didominasi oleh hamparan persawahan yang luas dan subur, 
+               menjadikan dusun ini sebagai sentra pertanian dengan suasana yang tenang dan alami.</p>
+          </div>
+
+          <div class="village-card">
+            <h4>Dusun Jambe</h4>
+            <p>Memiliki lingkungan yang asri dengan banyak pepohonan dan lahan hijau, 
+               menciptakan udara yang sejuk serta cocok untuk pengembangan potensi lingkungan dan perkebunan.</p>
+          </div>
+
+          <div class="village-card">
+            <h4>Dusun Sembung</h4>
+            <p>Terletak di wilayah yang strategis dengan perpaduan antara permukiman dan area pertanian, 
+               serta memiliki potensi dalam mendukung perkembangan ekonomi lokal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kontak -->
+    <div class="kontak">
+      <div class="kontak-container">
+        <div class="kontak-item">
+          <img
+            src="{{ url_for('static', filename='images/a.png') }}"
+            alt="Telepon"
+            width="24"
+            height="24"
+          />
+          <span>(0354) 412444</span>
+        </div>
+        <div class="kontak-item">
+          <img
+            src="{{ url_for('static', filename='images/c.png') }}"
+            alt="Email"
+            width="24"
+            height="24"
+          />
+          <span>portalinformasidesabangsri@gmail.com</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

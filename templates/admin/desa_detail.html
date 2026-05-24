@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Informasi Desa {{ nama }}</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background-color: #f8fafc;
+      }
+
+      header {
+        background-color: #1e3a8a;
+        color: white;
+        padding: 24px;
+        text-align: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 24px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+      }
+
+      .logo-kediri {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo-kediri img {
+        width: 80px;
+        height: auto;
+      }
+
+      .logo-kediri p {
+        font-size: 13px;
+        text-align: center;
+        margin: 8px 0 0;
+        line-height: 1.4;
+        color: white;
+      }
+
+      .header-text {
+        max-width: 600px;
+      }
+
+      .header-text h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0;
+        color: white;
+      }
+
+      .desa-container {
+        max-width: 700px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .desa-container h2 {
+        text-align: center;
+        color: #1e3a8a;
+        margin-bottom: 20px;
+      }
+
+      .button-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .button-list li {
+        text-align: center;
+      }
+
+      .button-list a {
+        display: block;
+        background-color: #3b82f6;
+        color: white;
+        padding: 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .button-list a:hover {
+        background-color: #2563eb;
+      }
+
+      .kembali {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .kembali a {
+        background-color: #3b82f6;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 8px;
+      }
+
+      .kembali a:hover {
+        background-color: #2563eb;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header dari dashboard -->
+    <header>
+      <div class="logo-kediri">
+        <img
+          src="{{ url_for('static', filename='images/yo.png') }}"
+          alt="Logo Kediri"
+        />
+        <p>
+          JL. Cendrawasih No. 112<br />Telp. (0354) 412444<br />Kode Pos 61476
+        </p>
+      </div>
+      <div class="header-text">
+        <h1>SELAMAT DATANG DI INFORMASI<br />DESA {{ nama }}</h1>
+      </div>
+    </header>
+
+    <div class="desa-container">
+      <h2>Pilih Informasi</h2>
+      <ul class="button-list">
+        <li><a href="/desa/{{ nama }}/wilayah">Wilayah Administratif</a></li>
+        <li><a href="/desa/{{ nama }}/pekerjaan">Pekerjaan</a></li>
+        <li><a href="/desa/{{ nama }}/pendidikan">Pendidikan</a></li>
+        <li><a href="/desa/{{ nama }}/agama">Agama</a></li>
+        <li><a href="/desa/{{ nama }}/jenis-kelamin">Jenis Kelamin</a></li>
+        <li><a href="/desa/{{ nama }}/golongan-darah">Golongan Darah</a></li>
+        <li><a href="/desa/{{ nama }}/umur-penduduk">Umur Penduduk</a></li>
+        <li>
+          <a href="/desa/{{ nama }}/perkembangan-penduduk"
+            >Perkembangan Penduduk</a
+          >
+        </li>
+      </ul>
+
+      <div class="kembali">
+        <a href="{{ url_for('desa') }}">← Kembali ke Daftar Desa</a>
+      </div>
+    </div>
+  </body>
+</html>

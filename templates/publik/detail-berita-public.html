@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ berita.judul }}</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f1f5f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        background: white;
+        padding: 30px;
+        margin: 40px auto;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .gambar-berita {
+        width: 100%;
+        max-width: 750px; /* batasi lebar maksimal */
+        max-height: 380px; /* biar tinggi gak terlalu besar */
+        object-fit: cover;
+        border-radius: 12px;
+        display: block;
+        margin: 0 auto 25px auto;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease; /* efek halus */
+      }
+
+      .gambar-berita:hover {
+        transform: scale(1.02); /* sedikit zoom saat di-hover */
+      }
+
+      h1 {
+        font-size: 26px;
+        color: #1e3a8a;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .tanggal {
+        font-size: 14px;
+        color: #6b7280;
+        text-align: right;
+        margin-bottom: 20px;
+      }
+
+      .isi {
+        font-size: 17px;
+        color: #374151;
+        line-height: 1.8;
+        text-align: justify;
+      }
+
+      .kembali {
+        display: inline-block;
+        margin-top: 25px;
+        background-color: #1e3a8a;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 15px;
+        transition: 0.3s;
+      }
+
+      .kembali:hover {
+        background-color: #3748c9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      {% if berita.gambar %}
+      <img
+        src="{{ berita.gambar }}"
+        alt="Gambar Berita"
+        class="gambar-berita"
+      />
+      {% endif %}
+
+      <h1>{{ berita.judul }}</h1>
+
+      <div class="tanggal">
+        {% if berita.tanggal %} {{ berita.tanggal.strftime('%d %B %Y') }} WIB {%
+        else %} Tanggal tidak tersedia {% endif %}
+      </div>
+
+      <div class="isi">{{ berita.isi }}</div>
+
+      <a href="{{ url_for('berita_public') }}" class="kembali">
+        ← Kembali ke Daftar Berita
+      </a>
+    </div>
+  </body>
+</html>

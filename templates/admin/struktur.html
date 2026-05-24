@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Struktur Organisasi Desa</title>
+
+<style>
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background-color: #7b2cbf;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.org-chart {
+  position: relative;
+  width: 1000px;
+  margin: auto;
+  height: 600px;
+}
+
+.node {
+  position: absolute;
+  width: 140px;
+  text-align: center;
+  background: white;
+  border: 2px solid #4b0082;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* POSISI NODE */
+.camat { top: 20px; left: 430px; }
+.sekretaris { top: 100px; left: 430px; }
+
+.kiri { top: 180px; left: 200px; }
+.kanan { top: 180px; left: 660px; }
+.bawah-kanan { top: 260px; left: 660px; }
+
+.kasi1 { top: 340px; left: 120px; }
+.kasi2 { top: 340px; left: 430px; }
+.kasi3 { top: 340px; left: 740px; }
+
+/* 4 KALDUS RAPI */
+.k1 { top: 450px; left: 50px; }
+.k2 { top: 450px; left: 250px; }
+.k3 { top: 450px; left: 450px; }
+.k4 { top: 450px; left: 650px; }
+
+/* GARIS */
+.line { position:absolute; background:black; }
+
+/* atas */
+.l1 { top:70px; left:500px; width:2px; height:30px; }
+.l2 { top:150px; left:500px; width:2px; height:30px; }
+
+/* cabang */
+.l3 { top:180px; left:270px; width:460px; height:2px; }
+.l4 { top:180px; left:270px; width:2px; height:30px; }
+.l5 { top:180px; left:730px; width:2px; height:30px; }
+
+.l6 { top:240px; left:730px; width:2px; height:30px; }
+
+/* ke kasi */
+.l7 { top:180px; left:500px; width:2px; height:160px; }
+
+.l8 { top:340px; left:150px; width:600px; height:2px; }
+.l9 { top:340px; left:150px; width:2px; height:30px; }
+.l10 { top:340px; left:500px; width:2px; height:30px; }
+.l11 { top:340px; left:850px; width:2px; height:30px; }
+
+/* kaldus */
+.l12 { top:400px; left:150px; width:2px; height:30px; }
+
+.l13 { top:450px; left:120px; width:600px; height:2px; }
+
+.l14 { top:450px; left:120px; width:2px; height:30px; }
+.l15 { top:450px; left:320px; width:2px; height:30px; }
+.l16 { top:450px; left:520px; width:2px; height:30px; }
+.l17 { top:450px; left:720px; width:2px; height:30px; }
+
+.back {
+  text-align: center;
+  margin-top: 50px;
+}
+.back a {
+  background:#6a0dad;
+  color:white;
+  padding:10px 20px;
+  border-radius:8px;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Struktur Organisasi Desa</h1>
+
+<div class="org-chart">
+
+<!-- GARIS -->
+<div class="line l1"></div>
+<div class="line l2"></div>
+<div class="line l3"></div>
+<div class="line l4"></div>
+<div class="line l5"></div>
+<div class="line l6"></div>
+<div class="line l7"></div>
+<div class="line l8"></div>
+<div class="line l9"></div>
+<div class="line l10"></div>
+<div class="line l11"></div>
+<div class="line l12"></div>
+<div class="line l13"></div>
+<div class="line l14"></div>
+<div class="line l15"></div>
+<div class="line l16"></div>
+<div class="line l17"></div>
+
+<!-- NODE -->
+<div class="node camat">Kepala Desa<br>SURADI</div>
+<div class="node sekretaris">Sekretaris<br>ANSORI</div>
+
+<div class="node kiri">Kaur TU dan Umum<br>MOHMAD JUNAIDI</div>
+<div class="node kanan">Kaur Perencanaan<br>DESY RATNASARI</div>
+<div class="node bawah-kanan">Kaur Keuangan<br>TARSO</div>
+
+<div class="node kasi1">Kasi Pemerintahan<br>SAMSUL HUDA</div>
+<div class="node kasi2">Kasi Kesejahteraan<br>FAIZAL ARDIYAS</div>
+<div class="node kasi3">Kasi Pelayanan<br>AINUL YAQIN</div>
+
+<div class="node k1">Kaldus Sembung<br>SARTONO</div>
+<div class="node k2">Kaldus Brumbung<br>ANDI RAHMAN</div>
+<div class="node k3">Kaldus Bangsri<br>PONARI</div>
+<div class="node k4">Kaldus Jambe<br>ABBI ANAN FAUZAN</div>
+
+</div>
+
+<div class="back">
+<a href="{{ url_for('dashboard') }}">Kembali ke Dashboard</a>
+</div>
+
+</body>
+</html>
